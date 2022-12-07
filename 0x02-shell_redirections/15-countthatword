@@ -1,0 +1,2 @@
+#!/bin/bash
+esrep -c -i "bin" /etc/passwd
