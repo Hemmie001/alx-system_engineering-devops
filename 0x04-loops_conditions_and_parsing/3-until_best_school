@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This scrypt displays "Best School" 10 times, using the while loop.
 
-i=0
+i=1
 Until ((i > 10))
 do
         echo "Best School"
