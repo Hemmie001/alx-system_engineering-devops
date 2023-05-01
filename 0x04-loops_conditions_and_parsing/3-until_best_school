@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This scrypt displays "Best School" 10 times, using the while loop.
+# This scrypt displays "Best School" 10 times, using the Until loop.
 
 i=1
 Until ((i > 10))
