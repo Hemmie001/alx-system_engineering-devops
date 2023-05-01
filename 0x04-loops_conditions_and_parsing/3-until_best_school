@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # This scrypt displays "Best School" 10 times, using the Until loop.
 
-i=0
-Until ((i -eq 10))
+count=0
+
+until [ $count -eq 10 ]
 do
-        echo "Best School"
-        ((i++))
+	echo "Best School"
+	(( count++ ))
 done
