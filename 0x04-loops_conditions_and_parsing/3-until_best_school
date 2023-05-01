@@ -2,7 +2,7 @@
 # This scrypt displays "Best School" 10 times, using the Until loop.
 
 i=0
-Until ((i == 10))
+Until ((i -eq 10))
 do
         echo "Best School"
         ((i++))
