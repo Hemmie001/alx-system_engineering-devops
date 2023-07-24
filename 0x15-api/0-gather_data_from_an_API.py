@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Write a Python script that, using this REST API,
- for a given employee ID, returns information about
-  his/her to-do list progress."""
+
+"""This Python script uses an REST API, for a given employee ID,
+andreturns information about his/her to-do list progress."""
 import requests
 from sys import argv
 
