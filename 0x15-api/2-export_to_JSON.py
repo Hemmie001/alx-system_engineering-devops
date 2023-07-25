@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 
 """This script extends the previous one in task #0
-to export data in the CSV format."""
+to export data in the JSON format."""
 
-import csv
+import json
 import requests
 from sys import argv
 
 
 if __name__ == "__main__":
-    file_name = "{}.csv".format(argv[1])
+    file_name = "{}.json".format(argv[1])
     user_id = int(argv[1])
+    data = {user_id: []}
+    aux_dict = {}
 
     # get the info of the users and tasks by his id in dict format
     users = requests.get(
@@ -18,14 +20,15 @@ if __name__ == "__main__":
                 argv[1])).json()
     todos = requests.get(
         "https://jsonplaceholder.typicode.com/todos?userId={}".format(
-                            argv[1])).json()
+                argv[1])).json()
 
-    # create and open a file and fill with the info below
-    with open(file_name, mode='w') as csvfile:
-        content = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        for todo in todos:
-            content.writerow(
-                [user_id,
-                    users.get('username'),
-                    todo.get('completed'),
-                    todo.get('title')])
+    for todo in todos:
+        aux_dict["task"] = todo.get("title")
+        aux_dict["completed"] = todo.get("completed")
+        aux_dict["username"] = users.get("username")
+        data[user_id].append(aux_dict)
+        aux_dict = {}
+
+    # create and open a file and fill with the info above
+    with open(file_name, mode="w", encoding="utf-8") as jsonfile:
+        json.dump(data, jsonfile, ensure_ascii=False)
