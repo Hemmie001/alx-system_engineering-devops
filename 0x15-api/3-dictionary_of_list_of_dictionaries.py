@@ -1,13 +1,7 @@
 #!/usr/bin/python3
 
 """This script extends the previous one in task #0
-to export data in the JSON format, but Format must be:
-"USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE",
-"completed": TASK_COMPLETED_STATUS}, {"username": "USERNAME",
-"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ],
-"USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed":
-TASK_COMPLETED_STATUS}, {"username": "USERNAME", "task": "TASK_TITLE",
-"completed": TASK_COMPLETED_STATUS}, ... ]}"""
+to export data in the JSON format, but Format must be:"""
 
 import json
 import requests
