@@ -5,24 +5,22 @@ number of subscribers (not active users, total subscribers) for a
 given subreddit.
 If an invalid subreddit is given, the function returns 0
 """
+
+import json
 import requests
 
 
 def top_ten(subreddit):
-    """
-    This returns the number of subscribers (not active users,
-    total subscribers) for a given subreddit.
-    """
-    base_url = 'https://www.reddit.com'
-    headers = {'user-agent': 'fake_user_agent'}
+    """Function to prints the titles of the first 10 hot posts of a
+    subreddit"""
 
-    dict_response = requests.get(
-      base_url + "/r/" + subreddit + "/hot.json",
-      headers=headers,
-      allow_redirects=False).json()
-
-    list_posts = dict_response.get('data', {}).get("children", [])
-    if not list_posts:
+    url = "https://www.reddit.com/r/"
+    headers = {"User-Agent": "User Agent"}
+    response = requests.get(url + subreddit + "/hot.json?limit=10",
+                            headers=headers, allow_redirects=False)
+    # print(response)
+    if response.status_code == 200:
+        for i in response.json().get("data").get("children"):
+            print(i.get("data").get("title"))
+    else:
         print("None")
-    for title in list_posts[:10]:
-        print(title.get('data').get('title'))
