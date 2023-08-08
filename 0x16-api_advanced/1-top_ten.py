@@ -3,20 +3,30 @@
 This script writes a function that queries the Reddit API and returns the
 number of subscribers (not active users, total subscribers) for a
 given subreddit.
-If an invalid subreddit is given, the function returns 0"""
-import json
-import requests
+If an invalid subreddit is given, the function returns 0
+"""
 
+def top_ten(subreddit):
+    """
+    This returns the number of subscribers (not active users,
+    total subscribers) for a given subreddit.
+    """
+    base_url = 'https://www.reddit.com'
+    headers = {'user-agent': 'fake_user_agent'}
 
-def number_of_subscribers(subreddit):
-    
-    """Function to returns the number of subscribers"""
-    url = "https://www.reddit.com/r/"
-    headers = {"User-Agent": "User Agent"}
-    response = requests.get(url + subreddit + "/about.json",
-                            headers=headers, allow_redirects=False)
-    if response.status_code == 200:
-        x = response.json().get("data").get("subscribers")
-        return response.json().get("data").get("subscribers")
-    else:
-        return 0
+    dict_response = requests.get(
+      base_url + "/r/" + subreddit + "/hot.json",
+      headers=headers,
+      allow_redirects=False).json()
+
+    list_posts = dict_response.get('data', {}).get("children", [])
+    if not list_posts:
+        print("None")
+    # for dict_elem in list_children:
+    #     final_dict[dict_elem.get('data').get('title')] = dict_elem.get(
+    #       'data').get('ups')
+
+    # list_sorted = sorted(final_dict.items(),
+    # key=lambda x: x[1], reverse=True)
+    for title in list_posts[:10]:
+        print(title.get('data').get('title'))
