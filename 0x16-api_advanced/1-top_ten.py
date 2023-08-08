@@ -22,11 +22,5 @@ def top_ten(subreddit):
     list_posts = dict_response.get('data', {}).get("children", [])
     if not list_posts:
         print("None")
-    # for dict_elem in list_children:
-    #     final_dict[dict_elem.get('data').get('title')] = dict_elem.get(
-    #       'data').get('ups')
-
-    # list_sorted = sorted(final_dict.items(),
-    # key=lambda x: x[1], reverse=True)
     for title in list_posts[:10]:
         print(title.get('data').get('title'))
