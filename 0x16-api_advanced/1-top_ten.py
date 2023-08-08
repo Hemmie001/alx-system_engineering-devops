@@ -5,7 +5,6 @@ number of subscribers (not active users, total subscribers) for a
 given subreddit.
 If an invalid subreddit is given, the function returns 0
 """
-
 import requests
 
 
