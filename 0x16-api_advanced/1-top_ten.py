@@ -6,6 +6,9 @@ given subreddit.
 If an invalid subreddit is given, the function returns 0
 """
 
+import requests
+
+
 def top_ten(subreddit):
     """
     This returns the number of subscribers (not active users,
