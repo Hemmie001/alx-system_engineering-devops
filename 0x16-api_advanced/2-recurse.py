@@ -1,5 +1,6 @@
-
-m requests import get
+#!/usr/bin/python3
+""" module 2 """
+from requests import get
 
 
 def recurse(subreddit, hot_list=[], page=None):
