@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 This script writes a function that queries the Reddit API and returns the
 number of subscribers (not active users, total subscribers) for a
 given subreddit.
