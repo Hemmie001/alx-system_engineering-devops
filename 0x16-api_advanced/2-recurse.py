@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-""" module 2 """
+"""
+This is a recursive function that queries the Reddit API and returns a list containing
+the titles of all hot articles for a given subreddit. If no results are found
+for the given subreddit, the function should return None
+"""
 from requests import get
 
 
 def recurse(subreddit, hot_list=[], page=None):
-    """ top_ten - Returns the titles of the first 10 hot post
-        in a subreddit.
-        parameters: subreddit.
-        Return: the numeber of subscribers or 0 is not a valid subreddit.
-    """
+    """returns a list containing the titles of all hot articles
+    for a given subreddit"""
 
     if page is None:
         request = get('https://www.reddit.com/r/{}/hot.json'
