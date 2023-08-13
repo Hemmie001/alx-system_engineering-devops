@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-#debugging 1
+#this script debugs nginx listen on port 80
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx start
 pkill -o nginx
