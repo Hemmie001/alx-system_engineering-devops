@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#debugging 1
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+pkill -o nginx
