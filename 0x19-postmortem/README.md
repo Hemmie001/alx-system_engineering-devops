@@ -3,14 +3,14 @@
 
 
 
-##### stmortem Report
+# stmortem Report
 
-### Incident report - 504 Error while accessing a given URL
+## Incident report - 504 Error while accessing a given URL
  
-## Issue Summary
+### Issue Summary
 Between 23:00 hrs and 23:39 hrs of August 09 2023, my Apache2 server was down. This was caused by a mistyped file name in the ‘.ini’ settings of the apache2 server configuration file. This led to premature closing of the apache2 server thereby resulting in 504 errors whenever I try accessing a website.
 
-## Timeline
+### Timeline
 
 - 23:00 - 500 error is displayed when I try accessing a website
 - 23:05 - I checked to ensure Apache and MySQL are up and running.
@@ -26,7 +26,7 @@ Between 23:00 hrs and 23:39 hrs of August 09 2023, my Apache2 server was down. T
 - 23:39 - Server is now running and the website is loading.
 
 
-## Root Cause and Resolution
+### Root Cause and Resolution
 
 The issue was as a result of an incorrectly named essential configuration file in the ‘.ini’ setting of the server's configuration. This led to the file not being read by the system whenever the server initializes or starts. As a result, it halts the file’s function and fails to display log errors, thereby having the server return a 500 Error wherever it is curled.
 
@@ -36,7 +36,7 @@ An easy fix was achieved by spelling correctly, the file  name and effecting the
 
 
 
-## Corrective and Preventive Measures
+### Corrective and Preventive Measures
 
 - All servers and sites should have error logging turned on for proper identification of errors and bugs.
 - All servers and sites should be tested locally before deployment in other to minimize time spent on fixing
