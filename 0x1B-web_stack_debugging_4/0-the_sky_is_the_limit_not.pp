@@ -9,7 +9,7 @@ exec { 'fix--for-nginx':
 }
 
 # Restart Nginx
-exec { 'nginx-restart':
+->exec { 'nginx-restart':
   # Restart Nginx service
   command => '/etc/init.d/nginx restart',
   # Specify the path for the init.d script
