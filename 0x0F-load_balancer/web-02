@@ -7,4 +7,4 @@ eval $("ssh-agent")
 #identifying the key path
 ssh-add ~/.ssh/school
 
-ssh ubuntu@35.153.93.239
+ssh ubuntu@35.153.78.98
