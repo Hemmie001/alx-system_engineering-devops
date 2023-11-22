@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This configures a new HAproxy runned load balancer
+
+# This lines install HAproxy on a server(lb)
+apt-get -y update
+apt-get install haproxy -y
+
+# This lines configure haproxy configuration file to distribute requests using a roundrobin algorithm
+echo "
+frontend viamani.tech
+        bind 0:80
+        default_backend viamani.tech_web_servers
+
+backend viamani.tech_web_servers
+        balance roundrobin
+        server 213103-web-01 100.25.220.252
+        server 213103-web-02 35.153.78.98
+" >> /etc/haproxy/haproxy.cfg
+
+# Restart HAproxy service
+service haproxy restart
