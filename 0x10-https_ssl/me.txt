@@ -1,0 +1,12 @@
+
+ntend viamani.tech                                                             
+~                                                                                  │        bind 0:80                                                                 
+~                                                                                  │        bind 0:443 ssl crt /etc/letsencrypt/live/www.viamani.tech/fullchain.pem   
+~                                                                                  │        mode viamani.tech                                                         
+~                                                                                  │        default_backend viamani.tech_web_servers                                  
+~                                                                                  │                                                                                  
+~                                                                                  │backend viamani.tech_web_servers                                                  
+~                                                                                  │        balance roundrobin                                                        
+~                                                                                  │        mode viamani.tech                                                         
+~                                                                                  │        server 213103-web-01 100.25.220.252                                       
+~                                                                                  │        server 213103-web-02 35.153.78.98
